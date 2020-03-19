@@ -1,0 +1,6 @@
+framework module Pods_Formalitas {
+  umbrella header "Pods-Formalitas-umbrella.h"
+
+  export *
+  module * { export * }
+}
