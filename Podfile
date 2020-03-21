@@ -7,7 +7,6 @@ target 'Formalitas' do
 
   # Pods for Formalitas
   pod 'SDWebImage'
-  pod 'Bolts'
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'FacebookShare'

@@ -10,6 +10,8 @@ import UIKit
 import FacebookCore
 
 class FeedController: UIViewController {
+    
+    //MARK:- Public Method
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,22 +22,22 @@ class FeedController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        
         getUserData()
     }
     
     func getUserData(){
         if AccessToken.current != nil {
             let connection = GraphRequestConnection()
-            connection.add(GraphRequest(graphPath: "/me/likes", parameters: ["fields": "id, name"])) { httpResponse, result, error   in
+
+            connection.add(GraphRequest(graphPath: "/me", parameters: ["fields":"id, name, email"])) { httpResponse, result, error   in
                 if error != nil {
                     NSLog(error.debugDescription)
                     return
                 }
-                
-                if let result = result as? [String: Any],
-                    let name: String = result["name"] as! String,
-                    let fbId: String = result["id"] as! String {
-                    
+
+                if let result = result as? [String: Any] {
+                    print(result)
                 }
             }
             connection.start()

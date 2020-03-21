@@ -14,8 +14,8 @@ class MainTabController: UITabBarController {
         super.viewDidLoad()
 
         viewControllers = [
-            generateViewController(source: ProfileController(), title: "Profile", image: #imageLiteral(resourceName: "moon")),
-            generateViewController(source: FeedController(), title: "Feed", image: #imageLiteral(resourceName: "share"))
+            generateViewController(source: FeedController(), title: "Feed", image: #imageLiteral(resourceName: "share")),
+            generateViewController(source: ProfileController(), title: "Profile", image: #imageLiteral(resourceName: "moon"))
         ]
     }
 

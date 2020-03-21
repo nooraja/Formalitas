@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,7 +18,8 @@
 		2E5016742421CDEE002FC91D /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5016732421CDEE002FC91D /* LoginController.swift */; };
 		2E5016792421CDEF002FC91D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E5016782421CDEF002FC91D /* Assets.xcassets */; };
 		2E50167C2421CDEF002FC91D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E50167A2421CDEF002FC91D /* LaunchScreen.storyboard */; };
-		2EC4A0AB2422F2E200006E77 /* ProfileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC4A0AA2422F2E200006E77 /* ProfileRequest.swift */; };
+		2E62B8312426019A004939B1 /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E62B82F2426019A004939B1 /* UserData.xcdatamodeld */; };
+		2E62B83324260396004939B1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E62B83224260396004939B1 /* CoreDataManager.swift */; };
 		2ED73E1E24225D1E0063FBEE /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED73E1D24225D1E0063FBEE /* MainTabController.swift */; };
 		3EF428997076C4975030C551 /* Pods_Formalitas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D91197EB04EC96DCF3879F /* Pods_Formalitas.framework */; };
 /* End PBXBuildFile section */
@@ -37,7 +38,8 @@
 		2E5016782421CDEF002FC91D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E50167B2421CDEF002FC91D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2E50167D2421CDEF002FC91D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2EC4A0AA2422F2E200006E77 /* ProfileRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRequest.swift; sourceTree = "<group>"; };
+		2E62B8302426019A004939B1 /* UserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserData.xcdatamodel; sourceTree = "<group>"; };
+		2E62B83224260396004939B1 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		2ED73E1D24225D1E0063FBEE /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
 		69A6FA7897A75589A28CE885 /* Pods-Formalitas.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Formalitas.debug.xcconfig"; path = "Target Support Files/Pods-Formalitas/Pods-Formalitas.debug.xcconfig"; sourceTree = "<group>"; };
 		90D91197EB04EC96DCF3879F /* Pods_Formalitas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Formalitas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +87,7 @@
 		2E50166E2421CDEE002FC91D /* Formalitas */ = {
 			isa = PBXGroup;
 			children = (
+				2E62B82F2426019A004939B1 /* UserData.xcdatamodeld */,
 				2E50166F2421CDEE002FC91D /* AppDelegate.swift */,
 				2E5016712421CDEE002FC91D /* SceneDelegate.swift */,
 				2ED73E1F24225ECA0063FBEE /* Controller */,
@@ -92,8 +95,7 @@
 				2E5016782421CDEF002FC91D /* Assets.xcassets */,
 				2E50167A2421CDEF002FC91D /* LaunchScreen.storyboard */,
 				2E50167D2421CDEF002FC91D /* Info.plist */,
-				2E36C350242264CC00140FE4 /* ViewControllerFactory.swift */,
-				2EC4A0AA2422F2E200006E77 /* ProfileRequest.swift */,
+				2E62B83224260396004939B1 /* CoreDataManager.swift */,
 			);
 			path = Formalitas;
 			sourceTree = "<group>";
@@ -112,6 +114,7 @@
 		2ED73E2024225ED80063FBEE /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2E36C350242264CC00140FE4 /* ViewControllerFactory.swift */,
 				2E4191342421F2BB00CC6256 /* UIView+Anchor.swift */,
 				2E36C356242272A700140FE4 /* GradientView.swift */,
 				2E36C3582422731200140FE4 /* CGContextExtension.swift */,
@@ -125,7 +128,6 @@
 				69A6FA7897A75589A28CE885 /* Pods-Formalitas.debug.xcconfig */,
 				BE8CAD1BEA038A77557911E3 /* Pods-Formalitas.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -249,8 +251,9 @@
 				2ED73E1E24225D1E0063FBEE /* MainTabController.swift in Sources */,
 				2E36C351242264CC00140FE4 /* ViewControllerFactory.swift in Sources */,
 				2E5016702421CDEE002FC91D /* AppDelegate.swift in Sources */,
+				2E62B8312426019A004939B1 /* UserData.xcdatamodeld in Sources */,
+				2E62B83324260396004939B1 /* CoreDataManager.swift in Sources */,
 				2E5016722421CDEE002FC91D /* SceneDelegate.swift in Sources */,
-				2EC4A0AB2422F2E200006E77 /* ProfileRequest.swift in Sources */,
 				2E36C35524226A7200140FE4 /* FeedController.swift in Sources */,
 				2E36C357242272A700140FE4 /* GradientView.swift in Sources */,
 				2E36C3592422731200140FE4 /* CGContextExtension.swift in Sources */,
@@ -443,6 +446,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2E62B82F2426019A004939B1 /* UserData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2E62B8302426019A004939B1 /* UserData.xcdatamodel */,
+			);
+			currentVersion = 2E62B8302426019A004939B1 /* UserData.xcdatamodel */;
+			path = UserData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2E5016642421CDEE002FC91D /* Project object */;
 }

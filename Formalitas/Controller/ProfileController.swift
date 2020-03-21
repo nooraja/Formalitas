@@ -72,12 +72,13 @@ class ProfileController: UIViewController {
                 if let result = result as? [String: Any],
                     let name: String = result["name"] as! String,
                     let fbId: String = result["id"] as! String,
+                    let email: String = result["email"] as? String,
                     let imageDictionary = result["picture"] as? [String: Any] {
 
                     if let dataImage = imageDictionary["data"] as? [String: Any],
                         let imageUrl = dataImage["url"] {
                         self.imageProfile.sd_setImage(with: URL(string: imageUrl as? String ?? ""), completed: nil)
-                        self.usernameTextView.text = name
+                        self.usernameTextView.text = email
                     }
                 }
             }
