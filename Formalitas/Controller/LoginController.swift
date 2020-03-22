@@ -7,13 +7,12 @@
 //
 
 import UIKit
-import FBSDKLoginKit
 import FacebookLogin
 
 class LoginController: UIViewController {
 
     // MARK:- Private Property
-    
+
     private let manager = LoginManager()
     private let profileController = ProfileController()
 
@@ -21,7 +20,6 @@ class LoginController: UIViewController {
         let button = FBLoginButton(frame: .zero, permissions: [.publicProfile, .email])
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.masksToBounds = false
-        button.isUserInteractionEnabled = true
         button.addTarget(self, action: #selector(whenTappedLoginButton), for: .touchUpInside)
         return button
     }()
@@ -29,7 +27,7 @@ class LoginController: UIViewController {
     // MARK:- Public Method
 
     override func viewDidAppear(_ animated: Bool) {
-        
+
         if AccessToken.current != nil {
             self.navigateToProfile()
         }
@@ -38,7 +36,18 @@ class LoginController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        animationForm()
         bindUI()
+    }
+    
+    func animationForm() {
+        let animation = CABasicAnimation(keyPath: "position.x")
+        animation.duration = 0.5
+        animation.fromValue = -view.bounds.size.width / 2
+        animation.toValue = view.bounds.size.width / 2
+        animation.duration = 2.0
+        
+        loginButton.layer.add(animation, forKey: "position.x")
     }
 
     @objc func whenTappedLoginButton() {
@@ -67,9 +76,9 @@ class LoginController: UIViewController {
         view.addSubview(viewMain)
 
         viewMain.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
-        
+
         viewMain.addSubview(loginButton)
-        
+
         loginButton.centerXAnchor.constraint(equalTo: viewMain.centerXAnchor).isActive = true
         loginButton.centerYAnchor.constraint(equalTo: viewMain.centerYAnchor).isActive = true
     }

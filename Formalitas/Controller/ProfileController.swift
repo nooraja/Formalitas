@@ -9,7 +9,6 @@
 import UIKit
 import FacebookCore
 import FacebookShare
-import FBSDKShareKit
 import SDWebImage
 import MobileCoreServices
 
@@ -147,16 +146,16 @@ final class ProfileController: UIViewController {
         view.addSubview(viewMain)
 
         viewMain.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
-        
+
         viewMain.addSubview(imageProfile)
         imageProfile.anchor(top: viewMain.safeAreaLayoutGuide.topAnchor, left: nil, bottom: nil, right: nil, paddingTop: 40, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 160, height: 160)
         imageProfile.centerXAnchor.constraint(equalTo: viewMain.centerXAnchor).isActive = true
-        
+
         let stackView = UIStackView(arrangedSubviews: [usernameTextView, emailTextView, genderDayTextView])
         stackView.distribution = .fillEqually
         stackView.axis = .vertical
         stackView.spacing = 10
-        
+
         viewMain.addSubview(stackView)
         stackView.anchor(top: imageProfile.bottomAnchor, left: viewMain.leftAnchor, bottom: nil, right: viewMain.rightAnchor, paddingTop: 20, paddingLeft: 40, paddingBottom: 0, paddingRight: 40, width: 0, height: 200)
     }
