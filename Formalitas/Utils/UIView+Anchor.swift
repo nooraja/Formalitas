@@ -42,6 +42,8 @@ extension UIView {
 
 extension UIColor {
     public static let blueFacebook = UIColor(displayP3Red: 24/255, green: 119/255, blue: 242/255, alpha: 1)
+    public static let orangeLight = UIColor(displayP3Red: 255/255, green: 153/255, blue: 102/255, alpha: 1)
+    public static let orangePure = UIColor(displayP3Red: 255/255, green: 94/255, blue: 98/255, alpha: 1)
 }
 
 extension CGFloat {

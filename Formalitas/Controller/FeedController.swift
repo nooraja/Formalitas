@@ -9,7 +9,7 @@
 import UIKit
 import FacebookCore
 
-class FeedController: UIViewController {
+final class FeedController: UIViewController {
     
     //MARK:- Public Method
 
@@ -21,27 +21,13 @@ class FeedController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        
-        getUserData()
-    }
-    
-    func getUserData(){
-        if AccessToken.current != nil {
-            let connection = GraphRequestConnection()
 
-            connection.add(GraphRequest(graphPath: "/me", parameters: ["fields":"id, name, email"])) { httpResponse, result, error   in
-                if error != nil {
-                    NSLog(error.debugDescription)
-                    return
-                }
-
-                if let result = result as? [String: Any] {
-                    print(result)
-                }
+        NetworkingFacebook().setUserData { result in
+            if let id = result["id"] as? String, let name = result["name"] as? String {
             }
-            connection.start()
         }
     }
+    
+    
 
 }

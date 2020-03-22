@@ -9,13 +9,11 @@
 import CoreData
 
 struct CoreDataManager {
-    
+
     //MARK:- Public Property
-    
+
     static let shared = CoreDataManager()
-    
-    //MARK:- Public Method
-    
+
     let persistenceContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "UserData")
         container.loadPersistentStores { (description, error) in
@@ -26,13 +24,18 @@ struct CoreDataManager {
         return container
     }()
     
+    //MARK:- Public Method
+
     @discardableResult
-    func createUser(name: String, email: String) -> User? {
+    func createUser(id: String, name: String, url: String, gender: String, email: String) -> User? {
         let context = persistenceContainer.viewContext
         
         let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context) as! User
+        user.id = id
         user.name = name
         user.email = email
+        user.urlImage = url
+        user.gender = gender
 
         do {
             try context.save()
@@ -43,7 +46,7 @@ struct CoreDataManager {
 
         return nil
     }
-    
+
     func fetchUser(id: String) -> User? {
         let context = persistenceContainer.viewContext
         
@@ -60,7 +63,27 @@ struct CoreDataManager {
         
         return nil
     }
- 
+    
+    func validateUser(id: String) -> Bool {
+        let context = persistenceContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<User>(entityName: "User")
+        fetchRequest.fetchLimit = 1
+        fetchRequest.predicate = NSPredicate(format: "id == %@", id)
+        
+        do {
+            let count = try context.count(for: fetchRequest)
+            if count > 0 {
+                return true
+            } else {
+                return false
+            }
+        } catch let createError {
+            print("Failed to valid: \(createError)")
+            return false
+        }
+    }
+
     func updateUser(user: User) {
         let context = persistenceContainer.viewContext
         
@@ -70,7 +93,7 @@ struct CoreDataManager {
             print("Failed to update: \(createError)")
         }
     }
-    
+
     func deleteUser(user: User) {
         
         let context = persistenceContainer.viewContext

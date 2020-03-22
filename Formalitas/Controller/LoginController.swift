@@ -18,17 +18,9 @@ class LoginController: UIViewController {
         let button = FBLoginButton(frame: .zero, permissions: [.publicProfile, .email])
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.masksToBounds = false
+        button.isUserInteractionEnabled = true
         button.addTarget(self, action: #selector(whenTappedLoginButton), for: .touchUpInside)
         return button
-    }()
-
-    lazy var imageView: UIImageView = {
-        let image = UIImageView(image: #imageLiteral(resourceName: "tester"))
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.contentMode = .scaleAspectFit
-        image.isUserInteractionEnabled = true
-
-        return image
     }()
     
     // MARK:- Private Property
@@ -47,11 +39,7 @@ class LoginController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let accessToken = AccessToken.current {
-            print("Access Token :  \(accessToken.appID)")
-        }
-        
+
         bindUI()
     }
 
