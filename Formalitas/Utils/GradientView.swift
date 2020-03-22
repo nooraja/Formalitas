@@ -11,12 +11,12 @@ import UIKit
 class GradientView: UIView {
 
     //MARK:- Public Method
-    
-    private let context = UIGraphicsGetCurrentContext()
 
     override func draw(_ rect: CGRect) {
+        
+        let context = UIGraphicsGetCurrentContext()
         let backgroundRect = bounds
-        context!.drawLinearGradient(
+        context?.drawLinearGradient(
             in: backgroundRect,
             startingWith: UIColor.blueFacebook.cgColor,
             finishingWith: UIColor.white.cgColor
@@ -24,6 +24,7 @@ class GradientView: UIView {
     }
 
     func changeGradientColor(firstColor: UIColor, secondColor: UIColor) {
+        let context = UIGraphicsGetCurrentContext()
         context?.drawLinearGradient(in: bounds, startingWith: firstColor.cgColor, finishingWith: secondColor.cgColor)
     }
 }

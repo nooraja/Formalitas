@@ -24,16 +24,16 @@ class LoginController: UIViewController {
     }()
     
     // MARK:- Private Property
-
-    private let mainTabBar = MainTabController()
+    
     private let manager = LoginManager()
+    private let profileController = ProfileController()
     
     // MARK:- Public Method
     
     override func viewDidAppear(_ animated: Bool) {
         
-        if AccessToken.current != nil{
-            self.present(MainTabController(), animated: true, completion: nil)
+        if AccessToken.current != nil {
+            self.navigateToProfile()
         }
     }
 
@@ -46,9 +46,7 @@ class LoginController: UIViewController {
     @objc func whenTappedLoginButton() {
         if AccessToken.current != nil{
           
-            self.mainTabBar.modalPresentationStyle = .fullScreen
-            self.present(mainTabBar, animated: true, completion: nil)
-
+            navigateToProfile()
         } else {
             manager.logIn(permissions: [.email, .publicProfile, .userGender, .userBirthday], viewController: self) { login in
 
@@ -56,8 +54,7 @@ class LoginController: UIViewController {
                 case .failed(let error):
                     print("error \(error)")
                 case .success(_, _, _):
-                    self.mainTabBar.modalPresentationStyle = .fullScreen
-                    self.present(self.mainTabBar, animated: true, completion: nil)
+                    self.navigateToProfile()
                 case .cancelled:
                     print("User cancelled login.")
                 }
@@ -78,6 +75,11 @@ class LoginController: UIViewController {
         
         loginButton.centerXAnchor.constraint(equalTo: viewMain.centerXAnchor).isActive = true
         loginButton.centerYAnchor.constraint(equalTo: viewMain.centerYAnchor).isActive = true
+    }
+    
+    fileprivate func navigateToProfile() {
+        self.profileController.modalPresentationStyle = .fullScreen
+        self.present(UINavigationController(rootViewController: self.profileController), animated: true, completion: nil)
     }
 
 }
