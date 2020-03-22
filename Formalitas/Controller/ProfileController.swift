@@ -8,7 +8,7 @@
 
 import UIKit
 import FacebookCore
-import FBSDKLoginKit
+import FacebookShare
 import FBSDKShareKit
 import SDWebImage
 import MobileCoreServices
@@ -19,7 +19,7 @@ final class ProfileController: UIViewController {
 
     private let context = CoreDataManager.shared
 
-    lazy var imageProfile: UIImageView = {
+    private lazy var imageProfile: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
@@ -27,7 +27,7 @@ final class ProfileController: UIViewController {
     
     // MARK:- Public Property
 
-    lazy var usernameTextView: UITextView = {
+    private lazy var usernameTextView: UITextView = {
         let textView = UITextView(frame: .zero)
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.textAlignment = .left
@@ -37,7 +37,7 @@ final class ProfileController: UIViewController {
         return textView
     }()
 
-    lazy var emailTextView: UITextView = {
+    private lazy var emailTextView: UITextView = {
         let textView = UITextView(frame: .zero)
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.textAlignment = .left
@@ -47,7 +47,7 @@ final class ProfileController: UIViewController {
         return textView
     }()
 
-    lazy var genderDayTextView: UITextView = {
+    private lazy var genderDayTextView: UITextView = {
         let textView = UITextView(frame: .zero)
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.textAlignment = .left
@@ -61,11 +61,12 @@ final class ProfileController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .systemRed
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
         
         bindUI()
+
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Share", style: .plain, target: self, action: #selector(handleShare))
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -93,9 +94,32 @@ final class ProfileController: UIViewController {
 
                         self.imageProfile.sd_setImage(with: URL(string: urlImage as! String), completed: nil)
                         self.usernameTextView.text = name
+                        self.emailTextView.text = email
+                        self.genderDayTextView.text = gender
                     }
                 }
             }
+        }
+    }
+    
+    @objc func handleShare() {
+        self.shareLink(url: URL(string: "https://cocoapods.org/pods/FacebookShare")!)
+    }
+    
+    func shareLink(url:URL){
+
+        let linkshare = ShareLinkContent()
+        linkshare.contentURL = url
+        linkshare.quote = "Testing my url"
+
+        let shareDialog = ShareDialog()
+        shareDialog.shareContent = linkshare
+        shareDialog.mode = .browser
+
+        do {
+            try shareDialog.show()
+        } catch let error {
+            print(error.localizedDescription)
         }
     }
 
@@ -110,17 +134,17 @@ final class ProfileController: UIViewController {
             AccessToken.current = nil
             let login = LoginController()
             login.modalPresentationStyle = .fullScreen
-            self.present(login, animated: true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         }
     }
-    
+
     // MARK:- Private Method
-    
-    fileprivate func bindUI() {
+
+    private func bindUI() {
         let viewMain = GradientView(frame: .zero)
         viewMain.changeGradientColor(firstColor: .orangeLight, secondColor: .orangePure)
-        
         view.addSubview(viewMain)
+
         viewMain.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         
         viewMain.addSubview(imageProfile)

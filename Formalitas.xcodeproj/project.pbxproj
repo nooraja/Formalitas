@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2E36C351242264CC00140FE4 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E36C350242264CC00140FE4 /* ViewControllerFactory.swift */; };
 		2E36C3532422657E00140FE4 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E36C3522422657E00140FE4 /* ProfileController.swift */; };
-		2E36C35524226A7200140FE4 /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E36C35424226A7200140FE4 /* FeedController.swift */; };
 		2E36C357242272A700140FE4 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E36C356242272A700140FE4 /* GradientView.swift */; };
 		2E36C3592422731200140FE4 /* CGContextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E36C3582422731200140FE4 /* CGContextExtension.swift */; };
 		2E4191352421F2BB00CC6256 /* UIView+Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4191342421F2BB00CC6256 /* UIView+Anchor.swift */; };
@@ -21,14 +20,12 @@
 		2E62B8312426019A004939B1 /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E62B82F2426019A004939B1 /* UserData.xcdatamodeld */; };
 		2E62B83324260396004939B1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E62B83224260396004939B1 /* CoreDataManager.swift */; };
 		2E62B83624261A4B004939B1 /* NetworkingFacebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E62B83524261A4B004939B1 /* NetworkingFacebook.swift */; };
-		2ED73E1E24225D1E0063FBEE /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED73E1D24225D1E0063FBEE /* MainTabController.swift */; };
 		3EF428997076C4975030C551 /* Pods_Formalitas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D91197EB04EC96DCF3879F /* Pods_Formalitas.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2E36C350242264CC00140FE4 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 		2E36C3522422657E00140FE4 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
-		2E36C35424226A7200140FE4 /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
 		2E36C356242272A700140FE4 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		2E36C3582422731200140FE4 /* CGContextExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGContextExtension.swift; sourceTree = "<group>"; };
 		2E4191342421F2BB00CC6256 /* UIView+Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Anchor.swift"; sourceTree = "<group>"; };
@@ -42,7 +39,6 @@
 		2E62B8302426019A004939B1 /* UserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserData.xcdatamodel; sourceTree = "<group>"; };
 		2E62B83224260396004939B1 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		2E62B83524261A4B004939B1 /* NetworkingFacebook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingFacebook.swift; sourceTree = "<group>"; };
-		2ED73E1D24225D1E0063FBEE /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
 		69A6FA7897A75589A28CE885 /* Pods-Formalitas.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Formalitas.debug.xcconfig"; path = "Target Support Files/Pods-Formalitas/Pods-Formalitas.debug.xcconfig"; sourceTree = "<group>"; };
 		90D91197EB04EC96DCF3879F /* Pods_Formalitas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Formalitas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE8CAD1BEA038A77557911E3 /* Pods-Formalitas.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Formalitas.release.xcconfig"; path = "Target Support Files/Pods-Formalitas/Pods-Formalitas.release.xcconfig"; sourceTree = "<group>"; };
@@ -107,9 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				2E5016732421CDEE002FC91D /* LoginController.swift */,
-				2ED73E1D24225D1E0063FBEE /* MainTabController.swift */,
 				2E36C3522422657E00140FE4 /* ProfileController.swift */,
-				2E36C35424226A7200140FE4 /* FeedController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -252,13 +246,11 @@
 				2E5016742421CDEE002FC91D /* LoginController.swift in Sources */,
 				2E4191352421F2BB00CC6256 /* UIView+Anchor.swift in Sources */,
 				2E62B83624261A4B004939B1 /* NetworkingFacebook.swift in Sources */,
-				2ED73E1E24225D1E0063FBEE /* MainTabController.swift in Sources */,
 				2E36C351242264CC00140FE4 /* ViewControllerFactory.swift in Sources */,
 				2E5016702421CDEE002FC91D /* AppDelegate.swift in Sources */,
 				2E62B8312426019A004939B1 /* UserData.xcdatamodeld in Sources */,
 				2E62B83324260396004939B1 /* CoreDataManager.swift in Sources */,
 				2E5016722421CDEE002FC91D /* SceneDelegate.swift in Sources */,
-				2E36C35524226A7200140FE4 /* FeedController.swift in Sources */,
 				2E36C357242272A700140FE4 /* GradientView.swift in Sources */,
 				2E36C3592422731200140FE4 /* CGContextExtension.swift in Sources */,
 			);
