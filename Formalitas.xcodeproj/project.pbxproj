@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E36C351242264CC00140FE4 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E36C350242264CC00140FE4 /* ViewControllerFactory.swift */; };
 		2E36C3532422657E00140FE4 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E36C3522422657E00140FE4 /* ProfileController.swift */; };
 		2E36C357242272A700140FE4 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E36C356242272A700140FE4 /* GradientView.swift */; };
 		2E36C3592422731200140FE4 /* CGContextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E36C3582422731200140FE4 /* CGContextExtension.swift */; };
@@ -24,7 +23,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2E36C350242264CC00140FE4 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 		2E36C3522422657E00140FE4 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		2E36C356242272A700140FE4 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		2E36C3582422731200140FE4 /* CGContextExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGContextExtension.swift; sourceTree = "<group>"; };
@@ -64,6 +62,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2E3DAB4C24270B37006D9CD0 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				2E62B83224260396004939B1 /* CoreDataManager.swift */,
+				2E62B83524261A4B004939B1 /* NetworkingFacebook.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		2E5016632421CDEE002FC91D = {
 			isa = PBXGroup;
 			children = (
@@ -88,13 +95,12 @@
 				2E62B82F2426019A004939B1 /* UserData.xcdatamodeld */,
 				2E50166F2421CDEE002FC91D /* AppDelegate.swift */,
 				2E5016712421CDEE002FC91D /* SceneDelegate.swift */,
+				2E3DAB4C24270B37006D9CD0 /* Networking */,
 				2ED73E1F24225ECA0063FBEE /* Controller */,
 				2ED73E2024225ED80063FBEE /* Utils */,
 				2E5016782421CDEF002FC91D /* Assets.xcassets */,
 				2E50167A2421CDEF002FC91D /* LaunchScreen.storyboard */,
 				2E50167D2421CDEF002FC91D /* Info.plist */,
-				2E62B83224260396004939B1 /* CoreDataManager.swift */,
-				2E62B83524261A4B004939B1 /* NetworkingFacebook.swift */,
 			);
 			path = Formalitas;
 			sourceTree = "<group>";
@@ -111,7 +117,6 @@
 		2ED73E2024225ED80063FBEE /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				2E36C350242264CC00140FE4 /* ViewControllerFactory.swift */,
 				2E4191342421F2BB00CC6256 /* UIView+Anchor.swift */,
 				2E36C356242272A700140FE4 /* GradientView.swift */,
 				2E36C3582422731200140FE4 /* CGContextExtension.swift */,
@@ -246,7 +251,6 @@
 				2E5016742421CDEE002FC91D /* LoginController.swift in Sources */,
 				2E4191352421F2BB00CC6256 /* UIView+Anchor.swift in Sources */,
 				2E62B83624261A4B004939B1 /* NetworkingFacebook.swift in Sources */,
-				2E36C351242264CC00140FE4 /* ViewControllerFactory.swift in Sources */,
 				2E5016702421CDEE002FC91D /* AppDelegate.swift in Sources */,
 				2E62B8312426019A004939B1 /* UserData.xcdatamodeld in Sources */,
 				2E62B83324260396004939B1 /* CoreDataManager.swift in Sources */,

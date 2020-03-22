@@ -25,9 +25,9 @@ class LoginController: UIViewController {
         button.addTarget(self, action: #selector(whenTappedLoginButton), for: .touchUpInside)
         return button
     }()
-    
+
     // MARK:- Public Method
-    
+
     override func viewDidAppear(_ animated: Bool) {
         
         if AccessToken.current != nil {
@@ -73,11 +73,10 @@ class LoginController: UIViewController {
         loginButton.centerXAnchor.constraint(equalTo: viewMain.centerXAnchor).isActive = true
         loginButton.centerYAnchor.constraint(equalTo: viewMain.centerYAnchor).isActive = true
     }
-    
+
     fileprivate func navigateToProfile() {
         self.profileController.modalPresentationStyle = .fullScreen
         self.present(UINavigationController(rootViewController: self.profileController), animated: true, completion: nil)
     }
 
 }
-

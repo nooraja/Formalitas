@@ -24,8 +24,6 @@ final class ProfileController: UIViewController {
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
-    
-    // MARK:- Public Property
 
     private lazy var usernameTextView: UITextView = {
         let textView = UITextView(frame: .zero)
@@ -61,32 +59,34 @@ final class ProfileController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         bindUI()
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Share", style: .plain, target: self, action: #selector(handleShare))
-
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
         let userId = AccessToken.current?.userID ?? ""
 
         if context.validateUser(id: userId) == true {
+
             let user = context.fetchUser(id: userId)
             self.imageProfile.sd_setImage(with: URL(string: user?.urlImage ?? ""), completed: nil)
             self.usernameTextView.text = user?.name
             self.emailTextView.text = user?.email
             self.genderDayTextView.text = user?.gender
         } else {
+
             NetworkingFacebook().setUserData { result in
                 if let name: String = result["name"] as? String,
                     let fbId: String = result["id"] as? String,
                     let email: String = result["email"] as? String,
                     let gender: String = result["gender"] as? String,
                     let imageDictionary = result["picture"] as? [String: Any] {
+
                     if let dataImage = imageDictionary["data"] as? [String: Any],
                         let urlImage = dataImage["url"] {
 
@@ -101,11 +101,11 @@ final class ProfileController: UIViewController {
             }
         }
     }
-    
+
     @objc func handleShare() {
         self.shareLink(url: URL(string: "https://cocoapods.org/pods/FacebookShare")!)
     }
-    
+
     func shareLink(url:URL){
 
         let linkshare = ShareLinkContent()
@@ -141,6 +141,7 @@ final class ProfileController: UIViewController {
     // MARK:- Private Method
 
     private func bindUI() {
+
         let viewMain = GradientView(frame: .zero)
         viewMain.changeGradientColor(firstColor: .orangeLight, secondColor: .orangePure)
         view.addSubview(viewMain)
