@@ -9,7 +9,7 @@
 import FacebookCore
 
 struct NetworkingFacebook {
-    
+
     func setUserData(handleCompletion: @escaping ([String: Any]) -> Void) {
         if AccessToken.current != nil {
             let connection = GraphRequestConnection()

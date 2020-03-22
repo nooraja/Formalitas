@@ -11,10 +11,13 @@ import FBSDKLoginKit
 import FacebookLogin
 
 class LoginController: UIViewController {
-    
-    // MARK:- Public Property
 
-    lazy var loginButton: FBLoginButton = {
+    // MARK:- Private Property
+    
+    private let manager = LoginManager()
+    private let profileController = ProfileController()
+
+    private lazy var loginButton: FBLoginButton = {
         let button = FBLoginButton(frame: .zero, permissions: [.publicProfile, .email])
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.masksToBounds = false
@@ -22,11 +25,6 @@ class LoginController: UIViewController {
         button.addTarget(self, action: #selector(whenTappedLoginButton), for: .touchUpInside)
         return button
     }()
-    
-    // MARK:- Private Property
-    
-    private let manager = LoginManager()
-    private let profileController = ProfileController()
     
     // MARK:- Public Method
     
@@ -45,7 +43,6 @@ class LoginController: UIViewController {
 
     @objc func whenTappedLoginButton() {
         if AccessToken.current != nil{
-          
             navigateToProfile()
         } else {
             manager.logIn(permissions: [.email, .publicProfile, .userGender, .userBirthday], viewController: self) { login in
